@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Food Log</title>
+</head>
+
+<body>
+    <h1>Edit Food Log</h1>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.food_name.label }}<br>
+            {{ form.food_name() }}
+        </p>
+        <p>
+            {{ form.quantity.label }}<br>
+            {{ form.quantity() }}
+        </p>
+        <p>
+            {{ form.calories.label }}<br>
+            {{ form.calories() }}
+        </p>
+        <p>
+            {{ form.protein.label }}<br>
+            {{ form.protein() }}
+        </p>
+        <p>
+            {{ form.carbs.label }}<br>
+            {{ form.carbs() }}
+        </p>
+        <p>
+            {{ form.fats.label }}<br>
+            {{ form.fats() }}
+        </p>
+        <p>
+            {{ form.log_date.label }}<br>
+            {{ form.log_date() }}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+    <a href="{{ url_for('food_log_history') }}">Return to Food Log History</a>
+</body>
+
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Select Workout Days</title>
+</head>
+<body>
+    <h1>How Many Days Do You Want to Train?</h1>
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        {{ form.csrf_token }}
+        <p>{{ form.days.label }}</p>
+        <p>{{ form.days }}</p>
+        <p>{{ form.submit() }}</p>
+    </form>
+</body>
+</html>

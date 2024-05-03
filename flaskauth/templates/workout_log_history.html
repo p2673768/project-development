@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workout Log History</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h1 {
+            color: #444;
+        }
+
+        .log-entry {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 600px;
+        }
+
+        h2 {
+            margin: 0;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        p {
+            margin: 5px 0;
+        }
+
+        .log-date {
+            color: #777;
+            font-style: italic;
+        }
+
+        .log-actions {
+            display: flex;
+            justify-content: flex-start;
+            gap: 10px;
+            padding-top: 10px;
+        }
+
+        a, input[type="submit"] {
+            text-decoration: none;
+            padding: 10px 15px;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        a {
+            background-color: #007bff;
+        }
+
+        input[type="submit"] {
+            background-color: #dc3545;
+        }
+
+        a:hover {
+            background-color: #0056b3;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #c82333;
+        }
+
+        .dashboard-link {
+            margin-top: 20px;
+            background-color: #28a745;
+        }
+
+        .dashboard-link:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Workout Log History</h1>
+    {% for workout in workouts %}
+        <div class="log-entry">
+            <h2>{{ workout.exercise_name }}</h2>
+            <p>Intensity: {{ workout.intensity }}</p>
+            <p>Duration: {{ workout.duration }} minutes</p>
+            <p class="log-date">Logged on: {{ workout.log_date.strftime('%Y-%m-%d %H:%M:%S') }}</p>
+            <div class="log-actions">
+                <a href="{{ url_for('edit_workout_log', workout_id=workout.id) }}">Edit</a>
+                <form action="{{ url_for('delete_workout', workout_id=workout.id) }}" method="post">
+                    <input type="submit" value="Delete">
+                </form>
+            </div>
+        </div>
+    {% else %}
+        <p>No workout logs found.</p>
+    {% endfor %}
+    <a href="{{ url_for('dashboard') }}" class="dashboard-link">Return to Dashboard</a>
+</body>
+
+</html>

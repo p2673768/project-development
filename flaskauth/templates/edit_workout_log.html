@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Workout Log</title>
+</head>
+
+<body>
+    <h1>Edit Workout Log</h1>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.exercise_name.label }}<br>
+            {{ form.exercise_name() }}
+        </p>
+        <p>
+            {{ form.intensity.label }}<br>
+            {{ form.intensity() }}
+        </p>
+        <p>
+            {{ form.duration.label }}<br>
+            {{ form.duration() }}
+        </p>
+        <p>
+            {{ form.log_date.label }}<br>
+            {{ form.log_date() }}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+    <a href="{{ url_for('workout_log_history') }}">Return to Workout Log History</a>
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KickStart Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        h1 {
+            color: #444;
+            text-align: center;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 10px 0;
+        }
+
+        a {
+            text-decoration: none;
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        a:hover {
+            background-color: #0056b3;
+        }
+
+        .logout {
+            display: block;
+            width: fit-content;
+            margin: 20px auto;
+            text-align: center;
+            background-color: #dc3545;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Hello, you have successfully logged in.</h1>
+    <ul>
+        <li><a href="{{ url_for('bmi_calculator') }}">BMI Calculator</a></li>
+        <li><a href="{{ url_for('tdee_calculator') }}">TDEE Calculator</a></li>
+        <li><a href="{{ url_for('food_log') }}">View Food Logs</a></li>
+        <li><a href="{{ url_for('workout_log') }}">View Workout Logs</a></li>
+        <li><a href="{{ url_for('food_log_history') }}">View Food Log History</a></li>
+        <li><a href="{{ url_for('workout_log_history') }}">View Workout Log History</a></li>
+        <li><a href="{{ url_for('select_workout_preference') }}">Get a workout plan for yourself</a></li>
+        <li><a href="{{ url_for('workout') }}">Personal Assessment</a></li>
+    </ul>
+
+    <a class="logout" href="{{ url_for('logout') }}">Press here to log out</a>
+</body>
+
+</html>

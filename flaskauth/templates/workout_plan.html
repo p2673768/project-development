@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        h1, h2 {
+            color: #444;
+        }
+
+        p {
+            background: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 600px;
+            margin-bottom: 10px;
+        }
+
+        .plan-section {
+            margin-bottom: 20px;
+        }
+
+        strong {
+            color: #007bff;
+        }
+
+        a {
+            text-decoration: none;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border-radius: 4px;
+            margin-top: 20px;
+            display: inline-block;
+        }
+
+        a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Your results</h1>
+    <div class="plan-section">
+        <p><strong>Intensity:</strong> {{ plan.intensity_description }}</p>
+        <p><strong>Volume:</strong> {{ plan.volume_description }}</p>
+        <p><strong>Sessions per Week:</strong> {{ plan.sessions_per_week }}</p>
+        <p><strong>Focus:</strong> {{ plan.focus }}</p>
+    </div>
+    
+    <h2>Nutritional Goals</h2>
+    <p><strong>Caloric Goal:</strong> {{ plan.nutrition.caloric_goal_statement }}</p>
+    <p><strong>Protein:</strong> {{ plan.nutrition.protein_grams }} grams</p>
+    <p><strong>Fats:</strong> {{ plan.nutrition.fat_grams }} grams</p>
+    <p><strong>Carbohydrates:</strong> {{ plan.nutrition.carb_grams }} grams</p>
+
+    <a href="{{ url_for('dashboard') }}">Return to Dashboard</a>
+</body>
+</html>
